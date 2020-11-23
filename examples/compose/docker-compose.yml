@@ -95,31 +95,31 @@ services:
       - "SIDECAR_DISPATCHER=1"
     restart: always
 
-  syslogng:
-    image: librenms/librenms:latest
-    container_name: librenms_syslogng
-    hostname: librenms-syslogng
-    depends_on:
-      - librenms
-    ports:
-      - target: 514
-        published: 514
-        protocol: tcp
-      - target: 514
-        published: 514
-        protocol: udp
-    volumes:
-      - "./librenms:/data"
-    env_file:
-      - "./librenms.env"
-    environment:
-      - "TZ=${TZ}"
-      - "PUID=${PUID}"
-      - "PGID=${PGID}"
-      - "DB_HOST=db"
-      - "DB_NAME=${MYSQL_DATABASE}"
-      - "DB_USER=${MYSQL_USER}"
-      - "DB_PASSWORD=${MYSQL_PASSWORD}"
-      - "DB_TIMEOUT=60"
-      - "SIDECAR_SYSLOGNG=1"
-    restart: always
+  #syslogng:
+  #  image: librenms/librenms:latest
+  #  container_name: librenms_syslogng
+  #  hostname: librenms-syslogng
+  #  depends_on:
+  #    - librenms
+  #  ports:
+  #    - target: 514
+  #      published: 514
+  #      protocol: tcp
+  #    - target: 514
+  #      published: 514
+  #      protocol: udp
+  #  volumes:
+  #    - "./librenms:/data"
+  #  env_file:
+  #    - "./librenms.env"
+  #  environment:
+  #    - "TZ=${TZ}"
+  #    - "PUID=${PUID}"
+  #    - "PGID=${PGID}"
+  #    - "DB_HOST=db"
+  #    - "DB_NAME=${MYSQL_DATABASE}"
+  #    - "DB_USER=${MYSQL_USER}"
+  #    - "DB_PASSWORD=${MYSQL_PASSWORD}"
+  #    - "DB_TIMEOUT=60"
+  #    - "SIDECAR_SYSLOGNG=1"
+  #  restart: always
